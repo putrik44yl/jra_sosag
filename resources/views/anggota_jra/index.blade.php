@@ -1,10 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
     <h2 class="mb-4">Daftar Anggota JRA</h2>
 
     <a href="{{ route('anggota_jra.create') }}" class="btn btn-primary mb-3">+ Tambah Anggota</a>
+
+    @if(session('success'))
+    <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
     <table class="table table-bordered">
         <thead class="table-dark">
@@ -32,11 +36,18 @@
                     <td>{{ ucfirst($data->status_keaktifan) }}</td>
                     <td>{{ ucfirst($data->status_keanggotaan) }}</td>
                     <td>
-                        <a href="{{ route('anggota_jra.edit', $data->id_anggota) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('anggota_jra.show', $data->id_anggota) }}" class="btn btn-icon btn-primary" title="Detail">
+                            <i class="bx bx-show"></i>
+                        </a>
+                        <a href="{{ route('anggota_jra.edit', $data->id_anggota) }}" class="btn btn-icon btn-warning" title="Edit">
+                            <i class="bx bx-edit"></i>
+                        </a>
                         <form action="{{ route('anggota_jra.destroy', $data->id_anggota) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus data ini?')">Hapus</button>
+                            <button class="btn btn-icon btn-danger" title="Hapus" onclick="return confirm('Yakin hapus data ini?')">
+                                <i class="bx bx-trash"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>

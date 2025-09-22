@@ -1,52 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>@yield('title', 'CelestialUI Admin')</title>
-
-  <!-- base:css -->
-  <link rel="stylesheet" href="{{ asset('admin/vendors/typicons.font/font/typicons.css') }}">
-  <link rel="stylesheet" href="{{ asset('admin/vendors/css/vendor.bundle.base.css') }}">
-  <!-- inject:css -->
-  <link rel="stylesheet" href="{{ asset('admin/css/vertical-layout-light/style.css') }}">
-  <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem JRA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container-scroller">
-    
-    {{-- Navbar --}}
-    @include('layouts.navbar')
-
-    <div class="container-fluid page-body-wrapper">
-      
-      {{-- Sidebar --}}
-      @include('layouts.sidebar')
-
-      <div class="main-panel">
-        <div class="content-wrapper">
-          {{-- Konten Halaman --}}
-          @yield('content')
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">Jasa Rahmatullah</a>
         </div>
+    </nav>
 
-        {{-- Footer --}}
-        @include('layouts.footer')
-      </div>
-    </div>
-  </div>
+    <main class="container">
+        @yield('content')
+    </main>
 
-  <!-- base:js -->
-  <script src="{{ asset('admin/vendors/js/vendor.bundle.base.js') }}"></script>
-  <!-- inject:js -->
-  <script src="{{ asset('admin/js/off-canvas.js') }}"></script>
-  <script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
-  <script src="{{ asset('admin/js/template.js') }}"></script>
-  <script src="{{ asset('admin/js/settings.js') }}"></script>
-  <script src="{{ asset('admin/js/todolist.js') }}"></script>
-  <!-- plugin js for this page -->
-  <script src="{{ asset('admin/vendors/progressbar.js/progressbar.min.js') }}"></script>
-  <script src="{{ asset('admin/vendors/chart.js/Chart.min.js') }}"></script>
-  <!-- Custom js for this page-->
-  <script src="{{ asset('admin/js/dashboard.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@
 
         <!-- Users -->
         <li class="menu-item {{ request()->is('users*') ? 'active' : '' }}">
-            <a href="{{ route('users.index') }}" class="menu-link">
+            <a href="{{ route('admin.users.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-user"></i>
                 <div>Users</div>
             </a>
@@ -28,7 +28,7 @@
 
         <!-- Anggota -->
         <li class="menu-item {{ request()->is('anggota_jra*') ? 'active' : '' }}">
-            <a href="{{ route('anggota_jra.index') }}" class="menu-link">
+            <a href="{{ route('admin.anggota_jra.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-group"></i>
                 <div>Anggota</div>
             </a>
@@ -36,7 +36,7 @@
 
         <!-- Pemulasaraan -->
         <li class="menu-item {{ request()->is('pemulasaraan*') ? 'active' : '' }}">
-            <a href="{{ route('pemulasaraan.index') }}" class="menu-link">
+            <a href="{{ route('admin.pemulasaraan.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-spa"></i>
                 <div>Pemulasaraan</div>
             </a>
@@ -44,7 +44,7 @@
 
         <!-- Ambulans -->
         <li class="menu-item {{ request()->is('ambulans*') ? 'active' : '' }}">
-            <a href="{{ route('ambulans.index') }}" class="menu-link">
+            <a href="{{ route('admin.ambulans.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-car"></i>
                 <div>Ambulans</div>
             </a>
@@ -52,7 +52,7 @@
 
         <!-- Pengguna Ambulans -->
         <li class="menu-item {{ request()->is('pengguna_ambulans*') ? 'active' : '' }}">
-            <a href="{{ route('pengguna_ambulans.index') }}" class="menu-link">
+            <a href="{{ route('admin.pengguna_ambulans.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-user-voice"></i>
                 <div>Pengguna Ambulans</div>
             </a>
@@ -60,7 +60,7 @@
 
         <!-- Sarana -->
         <li class="menu-item {{ request()->is('sarana*') ? 'active' : '' }}">
-            <a href="{{ route('sarana.index') }}" class="menu-link">
+            <a href="{{ route('admin.sarana.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-package"></i>
                 <div>Sarana</div>
             </a>
@@ -68,7 +68,7 @@
 
         <!-- Pengguna Sarana -->
         <li class="menu-item {{ request()->is('pengguna_sarana*') ? 'active' : '' }}">
-            <a href="{{ route('pengguna_sarana.index') }}" class="menu-link">
+            <a href="{{ route('admin.pengguna_sarana.index') }}" class="menu-link">
                 <i class="menu-icon bx bx-user-check"></i>
                 <div>Pengguna Sarana</div>
             </a>

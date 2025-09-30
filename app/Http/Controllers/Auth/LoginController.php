@@ -30,7 +30,7 @@ class LoginController extends Controller
         }
 
         if ($user->role === 'anggota') {
-            return redirect()->route('dashboard.anggota'); // /anggota/dashboard
+            return redirect()->route('anggota.dashboard'); // /anggota/dashboard
         }
 
         return redirect('/'); // fallback kalau role aneh

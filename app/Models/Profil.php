@@ -11,9 +11,11 @@ class Profil extends Model
 
     protected $fillable = [
         'user_id',
+        'nama_lengkap',
         'alamat',
         'no_hp',
         'tanggal_lahir',
+        'foto',
     ];
 
     public function user()

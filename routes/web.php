@@ -1,35 +1,62 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AnggotasController;
-use App\Http\Controllers\PemulasaraansController;
-use App\Http\Controllers\AmbulansController;
-use App\Http\Controllers\PenggunaAmbulansController;
-use App\Http\Controllers\SaranasController;
-use App\Http\Controllers\PenggunaSaranasController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomeController;
 
+// ===============================
+// Admin Controllers
+// ===============================
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AnggotasController;
+use App\Http\Controllers\Admin\PemulasaraansController;
+use App\Http\Controllers\Admin\AmbulansController;
+use App\Http\Controllers\Admin\PenggunaAmbulansController;
+use App\Http\Controllers\Admin\SaranasController;
+use App\Http\Controllers\Admin\PenggunaSaranasController;
+use App\Http\Controllers\Admin\UserController;
 
-use App\Http\Controllers\DashboardAnggotaController;
-use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\TugasController;
-use App\Http\Controllers\JadwalController;
+// ===============================
+// Anggota Controllers
+// ===============================
+use App\Http\Controllers\Anggota\DashboardAnggotaController;
+use App\Http\Controllers\Anggota\ProfilController;
+use App\Http\Controllers\Anggota\TugasController;
+use App\Http\Controllers\Anggota\JadwallController;
 
+// ===============================
+// Landing / Default
+// ===============================
 Route::get('/', function () {
     return view('welcome');
 });
 
+// ===============================
+// Auth default (login, register, dll.)
+// ===============================
 Auth::routes();
 
 // ===============================
-// Admin
+// Redirect Dashboard Global
+// ===============================
+Route::get('/dashboard', function () {
+    if (auth()->user()->role === 'admin') {
+        return redirect()->route('admin.dashboard');
+    }
+    if (auth()->user()->role === 'anggota') {
+        return redirect()->route('anggota.dashboard');
+    }
+    return redirect('/'); // fallback
+})->middleware('auth')->name('dashboard');
+
+// ===============================
+// Admin Routes
 // ===============================
 Route::prefix('admin')
     ->middleware(['auth', 'role:admin'])
+    ->name('admin.')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
         Route::resource('users', UserController::class);
         Route::resource('anggota_jra', AnggotasController::class);
         Route::resource('pemulasaraan', PemulasaraansController::class);
@@ -40,13 +67,16 @@ Route::prefix('admin')
     });
 
 // ===============================
-// Anggota
+// Anggota Routes
 // ===============================
 Route::prefix('anggota')
     ->middleware(['auth', 'role:anggota'])
+    ->name('anggota.')
     ->group(function () {
-        Route::get('/dashboard', [DashboardAnggotaController::class, 'index'])->name('dashboard.anggota');
-        Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
-        Route::resource('/tugas', TugasController::class);
-        Route::resource('/jadwal', JadwalController::class);
+        Route::get('/dashboard', [DashboardAnggotaController::class, 'index'])
+            ->name('dashboard');
+
+        Route::resource('profil', ProfilController::class);
+        Route::resource('tugas', TugasController::class);
+        Route::resource('jadwalls', JadwallController::class);
     });

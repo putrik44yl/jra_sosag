@@ -26,16 +26,17 @@ class User extends Authenticatable
 
     public function profil()
     {
-        return $this->hasOne(Profil::class, 'user_id');
+        return $this->hasOne(Profil::class);
     }
 
     public function tugas()
     {
-        return $this->hasMany(Tugas::class, 'user_id');
+        return $this->hasMany(Tugas::class);
     }
 
-    public function jadwal()
+    public function jadwalls()
     {
-        return $this->hasMany(Jadwal::class, 'user_id');
+        return $this->hasMany(Jadwall::class);
     }
+
 }

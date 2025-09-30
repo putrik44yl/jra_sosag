@@ -17,7 +17,7 @@
                     <i class="bx bx-user fs-1 text-secondary"></i>
                     <h5 class="mt-2">Users</h5>
                     <p class="text-muted">{{ $jumlahUsers ?? 0 }} akun</p>
-                    <a href="{{ route('users.index') }}" class="btn btn-sm btn-outline-secondary">Lihat</a>
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-sm btn-outline-secondary">Lihat</a>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                     <i class="bx bx-group fs-1 text-success"></i>
                     <h5 class="mt-2">Anggota</h5>
                     <p class="text-muted">{{ $jumlahAnggota ?? 0 }} orang</p>
-                    <a href="{{ route('anggota_jra.index') }}" class="btn btn-sm btn-outline-success">Lihat</a>
+                    <a href="{{ route('admin.anggota_jra.index') }}" class="btn btn-sm btn-outline-success">Lihat</a>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <i class="bx bx-spa fs-1 text-primary"></i>
                     <h5 class="mt-2">Pemulasaraan</h5>
                     <p class="text-muted">{{ $jumlahPemulasaraan ?? 0 }} layanan</p>
-                    <a href="{{ route('pemulasaraan.index') }}" class="btn btn-sm btn-outline-primary">Lihat</a>
+                    <a href="{{ route('admin.pemulasaraan.index') }}" class="btn btn-sm btn-outline-primary">Lihat</a>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
                     <i class="bx bx-car fs-1 text-danger"></i>
                     <h5 class="mt-2">Ambulans</h5>
                     <p class="text-muted">{{ $jumlahAmbulans ?? 0 }} unit</p>
-                    <a href="{{ route('ambulans.index') }}" class="btn btn-sm btn-outline-danger">Lihat</a>
+                    <a href="{{ route('admin.ambulans.index') }}" class="btn btn-sm btn-outline-danger">Lihat</a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                     <i class="bx bx-user-voice fs-1 text-warning"></i>
                     <h5 class="mt-2">Pengguna Ambulans</h5>
                     <p class="text-muted">{{ $jumlahPenggunaAmbulans ?? 0 }} orang</p>
-                    <a href="{{ route('pengguna_ambulans.index') }}" class="btn btn-sm btn-outline-warning">Lihat</a>
+                    <a href="{{ route('admin.pengguna_ambulans.index') }}" class="btn btn-sm btn-outline-warning">Lihat</a>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                     <i class="bx bx-package fs-1 text-info"></i>
                     <h5 class="mt-2">Sarana</h5>
                     <p class="text-muted">{{ $jumlahSarana ?? 0 }} item</p>
-                    <a href="{{ route('sarana.index') }}" class="btn btn-sm btn-outline-info">Lihat</a>
+                    <a href="{{ route('admin.sarana.index') }}" class="btn btn-sm btn-outline-info">Lihat</a>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                     <i class="bx bx-user-check fs-1 text-success"></i>
                     <h5 class="mt-2">Pengguna Sarana</h5>
                     <p class="text-muted">{{ $jumlahPenggunaSarana ?? 0 }} orang</p>
-                    <a href="{{ route('pengguna_sarana.index') }}" class="btn btn-sm btn-outline-success">Lihat</a>
+                    <a href="{{ route('admin.pengguna_sarana.index') }}" class="btn btn-sm btn-outline-success">Lihat</a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="{{ route('dashboard') }}" class="app-brand-link">
+        <a href="{{ route('anggota.dashboard') }}" class="app-brand-link">
             <span class="app-brand-text fw-bolder ms-2">JRA</span>
         </a>
     </div>
@@ -8,31 +8,28 @@
         <ul class="menu-inner py-1">
           <!-- Dashboard -->
           <li class="menu-item {{ request()->is('anggota/dashboard') ? 'active' : '' }}">
-            <a href="{{ route('dashboard.anggota') }}" class="menu-link">
+            <a href="{{ route('anggota.dashboard') }}" class="menu-link">
                 <i class="menu-icon bx bx-home-circle"></i>
                 <div>Dashboard</div>
             </a>
           </li>
 
-          <!-- Profil -->
           <li class="menu-item {{ request()->is('profil') ? 'active' : '' }}">
-            <a href="{{ route('profil') }}" class="menu-link">
+            <a href="{{ route('anggota.profil.index') }}" class="menu-link">
               <i class="menu-icon bx bx-user"></i>
               <div>Profil Saya</div>
             </a>
           </li>
 
-          <!-- Tugas Bulan Ini -->
-          <li class="menu-item">
-            <a href="#" class="menu-link">
+          <li class="menu-item {{ request()->is('tugas') ? 'active' : '' }}">
+            <a href="{{ route('anggota.tugas.index') }}" class="menu-link">
               <i class="menu-icon bx bx-task"></i>
               <div>Tugas Bulan Ini</div>
             </a>
           </li>
 
-          <!-- Jadwal Sopir -->
           <li class="menu-item">
-            <a href="#" class="menu-link">
+            <a href="{{ route('anggota.jadwalls.index') }}" class="menu-link">
               <i class="menu-icon bx bx-calendar"></i>
               <div>Jadwal Sopir</div>
             </a>

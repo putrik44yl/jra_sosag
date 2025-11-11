@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\PenggunaAmbulansController;
 use App\Http\Controllers\Admin\SaranasController;
 use App\Http\Controllers\Admin\PenggunaSaranasController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\KeuanganController;
+
 
 // ===============================
 // Anggota Controllers
@@ -64,6 +66,7 @@ Route::prefix('admin')
         Route::resource('pengguna_ambulans', PenggunaAmbulansController::class);
         Route::resource('sarana', SaranasController::class);
         Route::resource('pengguna_sarana', PenggunaSaranasController::class);
+        Route::resource('keuangan', KeuanganController::class);
     });
 
 // ===============================

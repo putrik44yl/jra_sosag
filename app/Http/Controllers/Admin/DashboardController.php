@@ -11,6 +11,7 @@ use App\Models\Ambulans;
 use App\Models\PenggunaAmbulans;
 use App\Models\Sarana;
 use App\Models\PenggunaSarana;
+use App\Models\Keuangan;
 
 class DashboardController extends Controller
 {
@@ -24,6 +25,7 @@ class DashboardController extends Controller
             'jumlahPenggunaAmbulans'=> PenggunaAmbulans::count(),
             'jumlahSarana'         => Sarana::count(),
             'jumlahPenggunaSarana' => PenggunaSarana::count(),
+            'jumlahKeuangan'       => Keuangan::count(),
         ]);
     }
 }

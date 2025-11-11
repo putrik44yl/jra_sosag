@@ -39,4 +39,10 @@ class User extends Authenticatable
         return $this->hasMany(Jadwall::class);
     }
 
+    public function keuangans()
+    {
+        return $this->hasMany(Keuangan::class);
+    }
+
+
 }

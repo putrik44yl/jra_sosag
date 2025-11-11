@@ -73,5 +73,13 @@
                 <div>Pengguna Sarana</div>
             </a>
         </li>
+
+        <!-- Keuangan -->
+        <li class="menu-item {{ request()->is('keuangan*') ? 'active' : '' }}">
+            <a href="{{ route('admin.keuangan.index') }}" class="menu-link">
+                <i class="menu-icon bx bx-package"></i>
+                <div>Sarana</div>
+            </a>
+        </li>
     </ul>
 </aside>

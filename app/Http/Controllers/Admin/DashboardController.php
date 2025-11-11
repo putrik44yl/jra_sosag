@@ -20,8 +20,8 @@ class DashboardController extends Controller
             'jumlahUsers'          => User::count(),
             'jumlahAnggota'        => Anggota::count(),
             'jumlahPemulasaraan'   => Pemulasaraan::count(),
-            'jumlahAmbulan'        => Ambulans::count(),
-            'jumlahPenggunaAmbulan'=> PenggunaAmbulans::count(),
+            'jumlahAmbulans'        => Ambulans::count(),
+            'jumlahPenggunaAmbulans'=> PenggunaAmbulans::count(),
             'jumlahSarana'         => Sarana::count(),
             'jumlahPenggunaSarana' => PenggunaSarana::count(),
         ]);

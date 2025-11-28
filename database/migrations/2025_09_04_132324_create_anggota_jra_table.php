@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('bln_daftar', 20)->nullable();
             $table->enum('status_keaktifan', ['aktif', 'nonaktif'])->default('aktif');
             $table->enum('status_keanggotaan', ['baru', 'lama', 'berhenti'])->default('baru');
+            $table->string('foto');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**

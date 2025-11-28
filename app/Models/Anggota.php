@@ -21,6 +21,7 @@ class Anggota extends Model
         'bln_daftar',
         'status_keaktifan',
         'status_keanggotaan',
+        'foto',
     ];
 
     /**

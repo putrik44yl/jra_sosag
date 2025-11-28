@@ -4,8 +4,9 @@
 <div class="container">
     <h2 class="mb-4">Tambah Anggota Baru</h2>
 
-    <form action="{{ route('admin.anggota_jra.store') }}" method="POST">
+    <form action="{{ route('admin.anggota_jra.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+
         <div class="mb-3">
             <label for="nama" class="form-label">Nama Anggota</label>
             <input type="text" name="nama" class="form-control" required>
@@ -46,6 +47,12 @@
                 <option value="lama">Lama</option>
                 <option value="berhenti">Berhenti</option>
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto Anggota</label>
+            <input type="file" name="foto" class="form-control" accept="image/*">
+            <div class="form-text">Boleh dikosongin</div>
         </div>
 
         <button type="submit" class="btn btn-success">Simpan</button>

@@ -4,7 +4,7 @@
 <div class="container">
     <h2 class="mb-4">Edit Anggota</h2>
 
-    <form action="{{ route('admin.anggota_jra.update', $anggota->id_anggota) }}" method="POST">
+    <form action="{{ route('admin.anggota_jra.update', $anggota->id_anggota) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -48,6 +48,20 @@
                 <option value="lama" {{ $anggota->status_keanggotaan == 'lama' ? 'selected' : '' }}>Lama</option>
                 <option value="berhenti" {{ $anggota->status_keanggotaan == 'berhenti' ? 'selected' : '' }}>Berhenti</option>
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Foto Saat Ini:</label><br>
+            @if ($anggota->foto)
+                <img src="{{ asset('storage/' . $anggota->foto) }}" width="120" class="rounded mb-2">
+            @else
+                <p class="text-muted">Belum ada foto</p>
+            @endif
+        </div>
+
+        <div class="mb-3">
+            <label for="foto" class="form-label">Ganti Foto (opsional)</label>
+            <input type="file" name="foto" class="form-control" accept="image/*">
         </div>
 
         <button type="submit" class="btn btn-success">Update</button>

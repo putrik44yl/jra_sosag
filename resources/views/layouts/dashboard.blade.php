@@ -45,9 +45,7 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
         <!-- Ambulans -->
         <div class="col-md-4 col-sm-6 mb-4">
             <div class="card shadow-sm border-0">
@@ -83,9 +81,7 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
         <!-- Pengguna Sarana -->
         <div class="col-md-4 col-sm-6 mb-4">
             <div class="card shadow-sm border-0">
@@ -97,7 +93,30 @@
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- Keuangan -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bx bx-wallet fs-1 text-primary"></i>
+                    <h5 class="mt-2">Keuangan</h5>
+                    <p class="text-muted">{{ $jumlahKeuangan ?? 0 }} transaksi</p>
+                    <a href="{{ route('admin.keuangan.index') }}" class="btn btn-sm btn-outline-primary">Lihat</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pemakaman -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bx bx-spa fs-1 text-primary"></i>
+                    <h5 class="mt-2">Pemakaman</h5>
+                    <p class="text-muted">{{ $jumlahPemakaman ?? 0 }} data</p>
+                    <a href="{{ route('admin.pemakaman.index') }}" class="btn btn-sm btn-outline-primary">Lihat</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

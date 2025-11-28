@@ -77,8 +77,32 @@
         <!-- Keuangan -->
         <li class="menu-item {{ request()->is('keuangan*') ? 'active' : '' }}">
             <a href="{{ route('admin.keuangan.index') }}" class="menu-link">
-                <i class="menu-icon bx bx-package"></i>
-                <div>Sarana</div>
+                <i class="menu-icon bx bx-money"></i>
+                <div>Keuangan</div>
+            </a>
+        </li>
+
+        <!-- Pemakaman -->
+         <li class="menu-item {{ request()->is('pemakaman*') ? 'active' : '' }}">
+            <a href="{{ route('admin.pemakaman.index') }}" class="menu-link">
+                <i class="menu-icon bx bx-money"></i>
+                <div>Pemakaman</div>
+            </a>
+        </li>
+
+        <!-- Galeri -->
+        <li class="menu-item {{ request()->is('galeri*') ? 'active' : '' }}">
+            <a href="{{ route('admin.galeri.index') }}" class="menu-link">
+                <i class="menu-icon bx bx-images"></i>
+                <div>Galeri</div>
+            </a>
+        </li>
+
+        <!-- Contact -->
+        <li class="menu-item {{ request()->is('contact*') ? 'active' : '' }}">
+            <a href="{{ route('admin.contact.index') }}" class="menu-link">
+                <i class="menu-icon bx bx-images"></i>
+                <div>Contact</div>
             </a>
         </li>
     </ul>

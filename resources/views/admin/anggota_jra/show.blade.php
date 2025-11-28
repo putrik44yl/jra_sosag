@@ -6,6 +6,14 @@
 
     <div class="card">
         <div class="card-body">
+
+            <div class="mb-3 text-center">
+                <img src="{{ $anggota->foto ? asset('storage/' . $anggota->foto) : asset('admin/default-user.png') }}"
+                     alt="Foto Anggota"
+                     class="img-fluid rounded"
+                     style="max-width: 200px;">
+            </div>
+
             <p><strong>ID Anggota:</strong> {{ $anggota->id_anggota }}</p>
             <p><strong>Nama:</strong> {{ $anggota->nama }}</p>
             <p><strong>No. Telp:</strong> {{ $anggota->no_telp }}</p>
@@ -14,6 +22,7 @@
             <p><strong>Bulan Daftar:</strong> {{ $anggota->bln_daftar }}</p>
             <p><strong>Status Keaktifan:</strong> {{ ucfirst($anggota->status_keaktifan) }}</p>
             <p><strong>Status Keanggotaan:</strong> {{ ucfirst($anggota->status_keanggotaan) }}</p>
+
         </div>
     </div>
 

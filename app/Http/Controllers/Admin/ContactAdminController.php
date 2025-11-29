@@ -7,22 +7,22 @@ use App\Models\Contact;
 
 class ContactAdminController extends Controller
 {
-    public function index()
+    public function store(Request $request)
     {
-        $contacts = Contact::orderBy('created_at','desc')->get();
-        return view('admin.contact.index', compact('contacts'));
-    }
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
 
-    public function show($id)
-    {
-        $contact = Contact::findOrFail($id);
-        $contact->update(['is_read' => true]);
-        return view('admin.contact.show', compact('contact'));
-    }
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
 
-    public function destroy($id)
-    {
-        Contact::findOrFail($id)->delete();
-        return redirect()->route('admin.contact.index')->with('success','Pesan dihapus.');
+        return back()->with('success', 'Pesan berhasil dikirim!');
     }
 }

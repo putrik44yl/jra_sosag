@@ -36,11 +36,17 @@ class PemakamanController extends Controller
             'tanggal_meninggal' => $request->tanggal_meninggal,
             'keluarga_almarhum' => $request->keluarga_almarhum,
             'keterangan' => $request->keterangan,
-            'user_id' => Auth::id(), // Admin yg input
+            'user_id' => Auth::id(),
         ]);
 
         return redirect()->route('admin.pemakaman.index')
                          ->with('success', 'Data pemakaman berhasil ditambahkan');
+    }
+
+    public function show($id)
+    {
+        $pemakaman = Pemakaman::with('user')->findOrFail($id);
+        return view('admin.pemakaman.show', compact('pemakaman'));
     }
 
     public function edit($id)

@@ -97,13 +97,5 @@
                 <div>Galeri</div>
             </a>
         </li>
-
-        <!-- Contact -->
-        <li class="menu-item {{ request()->is('contact*') ? 'active' : '' }}">
-            <a href="{{ route('admin.contact.index') }}" class="menu-link">
-                <i class="menu-icon bx bx-images"></i>
-                <div>Contact</div>
-            </a>
-        </li>
     </ul>
 </aside>

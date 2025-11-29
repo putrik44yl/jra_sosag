@@ -48,84 +48,77 @@
                     <h2>Data Pemakaman</h2>
                 </div>
 
-                <div class="row gy-4">
-                    @forelse ($pemakaman as $pem)
-                        <div class="col-lg-4">
-                            <div class="card p-3 shadow-sm">
-                                <h5>{{ $pem->nama_almarhum }}</h5>
-                                <p class="mb-1"><strong>Blok:</strong> {{ $pem->blok }}</p>
-                                <p class="mb-1"><strong>Lahir:</strong> {{ $pem->tempat_tanggal_lahir }}</p>
-                                <p class="mb-1"><strong>Meninggal:</strong> {{ $pem->tanggal_meninggal }}</p>
-                                <p class="text-muted small">{{ $pem->keterangan }}</p>
-                            </div>
-                        </div>
-                    @empty
-                        <p class="text-center">Belum ada data pemakaman.</p>
-                    @endforelse
-                </div>
+                @if($pemakaman->count())
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nama Almarhum</th>
+                                <th>Blok</th>
+                                <th>Lahir</th>
+                                <th>Meninggal</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pemakaman as $pem)
+                                <tr>
+                                    <td>{{ $pem->nama_almarhum }}</td>
+                                    <td>{{ $pem->blok }}</td>
+                                    <td>{{ $pem->tempat_tanggal_lahir }}</td>
+                                    <td>{{ $pem->tanggal_meninggal }}</td>
+                                    <td>{{ $pem->keterangan }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="text-center">Belum ada data pemakaman.</p>
+                @endif
             </div>
         </section>
+
 
 
         <!-- ===========================
             DATA ANGGOTA JRA
         ============================ -->
         <section id="anggota" class="section bg-light pt-5">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Anggota JRA</h2>
-                    <p>Daftar anggota yang aktif melayani umat.</p>
-                </div>
-
-                <div class="row gy-4">
-                    @forelse ($anggota as $a)
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card p-3 text-center shadow-sm">
-
-                                <img src="{{ asset('storage/' . $a->foto) }}"
-                                     class="rounded-circle mb-3"
-                                     width="90" height="90"
-                                     style="object-fit: cover">
-
-                                <h5>{{ $a->nama }}</h5>
-                                <p class="text-muted small">{{ $a->alamat }}</p>
-                                <span class="badge bg-success">{{ $a->status_keaktifan }}</span>
-
-                            </div>
-                        </div>
-                    @empty
-                        <p class="text-center">Belum ada anggota terdaftar.</p>
-                    @endforelse
-                </div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Anggota JRA</h2>
+                <p>Daftar anggota yang aktif melayani umat.</p>
             </div>
-        </section>
 
-
-        <!-- ===========================
-            DATA PEMULASARAAN
-        ============================ -->
-        <section id="pemulasaraan" class="section pt-5">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Data Pemulasaraan</h2>
-                    <p>Layanan pemulasaraan jenazah JRA Assalaam.</p>
-                </div>
-
-                <div class="row gy-4">
-                    @forelse ($pemulasaraan as $p)
-                        <div class="col-lg-4">
-                            <div class="card p-3 shadow-sm">
-                                <h5>{{ $p->nama_jenazah }}</h5>
-                                <p><strong>Waktu:</strong> {{ $p->waktu }}</p>
-                                <p><strong>Petugas:</strong> {{ $p->petugas }}</p>
-                            </div>
-                        </div>
-                    @empty
-                        <p class="text-center">Belum ada data pemulasaraan.</p>
-                    @endforelse
-                </div>
-            </div>
-        </section>
+            @if($anggota->count())
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($anggota as $a)
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('storage/' . $a->foto) }}"
+                                        width="60" height="60"
+                                        style="object-fit: cover; border-radius: 50%;">
+                                </td>
+                                <td>{{ $a->nama }}</td>
+                                <td>{{ $a->alamat }}</td>
+                                <td>{{ $a->status_keaktifan }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+                <p class="text-center">Belum ada anggota terdaftar.</p>
+            @endif
+        </div>
+    </section>
 
 
         <!-- ===========================
@@ -137,21 +130,84 @@
                     <h2>Layanan Ambulans</h2>
                 </div>
 
-                <div class="row gy-4">
-                    @forelse ($ambulans as $am)
-                        <div class="col-lg-4">
-                            <div class="card p-3 shadow-sm">
-                                <h5>{{ $am->merk }}</h5>
-                                <p><strong>Plat:</strong> {{ $am->plat }}</p>
-                                <p><strong>Status:</strong> {{ $am->status }}</p>
-                            </div>
-                        </div>
-                    @empty
-                        <p class="text-center">Belum ada ambulans.</p>
-                    @endforelse
-                </div>
+                @if($ambulans->count())
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Merk</th>
+                                <th>Plat</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($ambulans as $am)
+                                <tr>
+                                    <td>{{ $am->merk }}</td>
+                                    <td>{{ $am->plat }}</td>
+                                    <td>{{ $am->status }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="text-center">Belum ada ambulans.</p>
+                @endif
             </div>
         </section>
+
+        
+        <!-- ===========================
+            DATA PEMULASARAAN
+
+        ============================ -->
+        <section id="pemulasaraan" class="section bg-light pt-5">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Layanan Pemulasaraan</h2>
+                </div>
+
+                @if($pemulasaraan->count())
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nama Almarhum</th>
+                                <th>Tanggal Permintaan</th>
+                                <th>Tanggal Pemulasaraan</th>
+                                <th>Status</th>
+                                <th>Lokasi</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pemulasaraan as $pm)
+                                <tr>
+                                    <td>{{ $pm->nama_almarhum }}</td>
+                                    <td>{{ $pm->tgl_permintaan }}</td>
+                                    <td>{{ $pm->tgl_pemulasaraan ?? '-' }}</td>
+                                    <td>
+                                        @if($pm->status == 'menunggu')
+                                            <span class="badge bg-warning text-dark">Menunggu</span>
+                                        @elseif($pm->status == 'berjalan')
+                                            <span class="badge bg-info text-dark">Berjalan</span>
+                                        @elseif($pm->status == 'selesai')
+                                            <span class="badge bg-success">Selesai</span>
+                                        @else
+                                            <span class="badge bg-danger">Dibatalkan</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $pm->lokasi ?? '-' }}</td>
+                                    <td>{{ $pm->keterangan ?? '-' }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="text-center">Belum ada data pemulasaraan.</p>
+                @endif
+
+            </div>
+        </section>
+
 
 
         <!-- ===========================
@@ -190,75 +246,6 @@
         </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="contact section light-background">
-
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-    </div>
-
-    <div class="container" data-aos="fade" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-            <div class="col-lg-4">
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                    <i class="bi bi-geo-alt flex-shrink-0"></i>
-                    <div>
-                        <h3>Address</h3>
-                        <p>Jl. Sasak Gantung No.10</p>
-                    </div>
-                </div>
-
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bi bi-telephone flex-shrink-0"></i>
-                    <div>
-                        <h3>Call Us</h3>
-                        <p>081572532589</p>
-                    </div>
-                </div>
-
-                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                    <i class="bi bi-envelope flex-shrink-0"></i>
-                    <div>
-                        <h3>Email Us</h3>
-                        <p>jraassalaam@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-8">
-
-                <!-- Alert sukses -->
-                @if(session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
-
-                <form action="{{ route('contact.send') }}" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                    @csrf
-                    <div class="row gy-4">
-                        <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="col-md-12">
-                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-                        </div>
-                        <div class="col-md-12">
-                            <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
-                        </div>
-                        <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-
-                            <button type="submit">Send Message</button>
-                        </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     </main> 
 @endsection

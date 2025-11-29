@@ -109,6 +109,12 @@ Route::prefix('admin')
 
         // CONTACT ADMIN ROUTE (FIX ERROR)
         Route::get('/contact', [ContactAdminController::class, 'index'])->name('contact.index');
+
+        // ==============================
+        // ROUTE SEARCH (DITAMBAHKAN)
+        // ==============================
+        Route::get('/search', [App\Http\Controllers\Admin\SearchController::class, 'index'])
+            ->name('search');
     });
 
 

@@ -1,29 +1,69 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <h2 class="mb-4">Detail Pemulasaraan</h2>
+<div class="container-xxl flex-grow-1 container-p-y">
 
-    <div class="card">
+    <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h4 class="m-0">Detail Pemulasaraan</h4>
+            <a href="{{ route('admin.pemulasaraan.index') }}" class="btn btn-secondary">
+                <i class="bx bx-arrow-back"></i> Kembali
+            </a>
+        </div>
+
         <div class="card-body">
-            <p><strong>ID:</strong> {{ $pemulasaraan->id }}</p>
-            <p><strong>Nama Almarhum:</strong> {{ $pemulasaraan->nama_almarhum }}</p>
-            <p><strong>Tanggal Permintaan:</strong> {{ $pemulasaraan->tgl_permintaan }}</p>
-            <p><strong>Tanggal Pemulasaraan:</strong> {{ $pemulasaraan->tgl_pemulasaraan }}</p>
-            <p><strong>Status:</strong> {{ ucfirst($pemulasaraan->status) }}</p>
-            <p><strong>Lokasi:</strong> {{ $pemulasaraan->lokasi }}</p>
-            <p><strong>Keterangan:</strong> {{ $pemulasaraan->keterangan }}</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th width="200">ID Pemulasaraan</th>
+                    <td>{{ $pemulasaraan->id_pemulasaraan }}</td>
+                </tr>
+                <tr>
+                    <th>Nama Almarhum</th>
+                    <td>{{ $pemulasaraan->nama_almarhum }}</td>
+                </tr>
+                <tr>
+                    <th>Tanggal Permintaan</th>
+                    <td>{{ $pemulasaraan->tgl_permintaan }}</td>
+                </tr>
+                <tr>
+                    <th>Tanggal Pemulasaraan</th>
+                    <td>{{ $pemulasaraan->tgl_pemulasaraan ?? '-' }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>
+                        <span class="badge 
+                            @if($pemulasaraan->status=='menunggu') bg-warning
+                            @elseif($pemulasaraan->status=='berjalan') bg-info
+                            @elseif($pemulasaraan->status=='selesai') bg-success
+                            @else bg-danger
+                            @endif
+                        ">
+                            {{ ucfirst($pemulasaraan->status) }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Lokasi</th>
+                    <td>{{ $pemulasaraan->lokasi ?? '-' }}</td>
+                </tr>
+                <tr>
+                    <th>Keterangan</th>
+                    <td>{{ $pemulasaraan->keterangan ?? '-' }}</td>
+                </tr>
+                <tr>
+                    <th>Dibuat Pada</th>
+                    <td>{{ $pemulasaraan->created_at }}</td>
+                </tr>
+                <tr>
+                    <th>Diperbarui Pada</th>
+                    <td>{{ $pemulasaraan->updated_at }}</td>
+                </tr>
+            </table>
+
         </div>
     </div>
 
-    <div class="mt-3">
-        <a href="{{ route('admin.pemulasaraan.index') }}" class="btn btn-secondary">Kembali</a>
-        <a href="{{ route('admin.pemulasaraan.edit', $pemulasaraan->id) }}" class="btn btn-warning">Edit</a>
-        <form action="{{ route('admin.pemulasaraan.destroy', $pemulasaraan->id) }}" method="POST" class="d-inline">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger" onclick="return confirm('Yakin hapus data ini?')">Hapus</button>
-        </form>
-    </div>
 </div>
 @endsection

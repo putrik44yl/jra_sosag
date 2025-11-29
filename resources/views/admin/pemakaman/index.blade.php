@@ -40,16 +40,25 @@
                         <td>{{ $item->keluarga_almarhum }}</td>
                         <td>{{ $item->user->name ?? '-' }}</td>
                         <td>
-                            <a href="{{ route('admin.pemakaman.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{{ route('admin.pemakaman.show', $item->id) }}"
+                            class="btn btn-sm btn-primary">
+                                Lihat
+                            </a>
+
+                            <a href="{{ route('admin.pemakaman.edit', $item->id) }}"
+                            class="btn btn-sm btn-warning">
+                                Edit
+                            </a>
 
                             <form action="{{ route('admin.pemakaman.destroy', $item->id) }}"
-                                  method="POST" class="d-inline"
-                                  onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                method="POST" class="d-inline"
+                                onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-sm btn-danger">Hapus</button>
                             </form>
                         </td>
+
                     </tr>
                     @empty
                     <tr>
